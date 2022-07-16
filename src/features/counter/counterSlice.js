@@ -17,7 +17,7 @@ export const incrementAsync = createAsyncThunk(
     const response = await fetchCount(amount);
     // The value we return becomes the `fulfilled` action payload
     return response.data;
-  }
+  },
 );
 
 export const counterSlice = createSlice({
@@ -30,7 +30,7 @@ export const counterSlice = createSlice({
       // doesn't actually mutate the state because it uses the Immer library,
       // which detects changes to a "draft state" and produces a brand new
       // immutable state based off those changes
-      state.value += 1
+      state.value += 1;
     },
     decrement: (state) => {
       state.value -= 1;
