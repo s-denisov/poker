@@ -15,10 +15,11 @@
         "sourceType": "module"
     },
     "plugins": [
-        "react"
+        "react", "only-warn"
     ],
     "rules": {
         "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
-	"no-param-reassign": "off"
+	"no-param-reassign": "off",
+    "react/prop-types": "off"
     }
 }

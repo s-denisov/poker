@@ -48,5 +48,8 @@ const gameSlice = createSlice({
   },
 });
 
+export const selectCommunityCards = (state) => state.game.communityCards;
+export const selectPlayer = (playerNum) => (state) => state.game.players[playerNum];
+
 export const { newGame, newRound } = gameSlice.actions;
 export default gameSlice.reducer;

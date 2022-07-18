@@ -1,17 +1,40 @@
 import React from 'react';
 
-export default function Card(props) {
-  const cardColor = ['hearts', 'diamonds'].includes(props.suit) ? 'red' : 'black';
-  if (props.faceDown) {
-    return <img width={100} height={140} src="card-back.png" alt="face down card" />;
+export default function Card({ faceDown, suit, number }) {
+  const cardColor = ['hearts', 'diamonds'].includes(suit) ? 'red' : 'black';
+  if (faceDown) {
+    return (
+      <img
+        style={{
+          width: '5vw',
+          height: '7vw',
+          borderStyle: 'solid',
+          borderWidth: 1,
+          borderColor: 'black',
+        }}
+        src="card-back.png"
+        alt="face down card"
+      />
+    );
   }
   return (
     <div style={{
-      borderStyle: 'solid', borderWidth: 1, borderColor: 'black', width: 100, height: 140, padding: 10, fontSize: 50, boxSizing: 'border-box', position: 'relative', fontWeight: 'bold', color: cardColor,
+      borderStyle: 'solid',
+      borderWidth: 1,
+      borderColor: 'black',
+      width: '5vw',
+      height: '7vw',
+      padding: '0.5vw',
+      fontSize: '2.5vw',
+      boxSizing: 'border-box',
+      position: 'relative',
+      fontWeight: 'bold',
+      color: cardColor,
+      backgroundColor: 'white',
     }}
     >
-      {props.number}
-      <img width={50} height={50} src={`${props.suit}.png`} alt={props.suit} style={{ position: 'absolute', bottom: 10, right: 10 }} />
+      {number}
+      <img width="50%" height="35%" src={`${suit}.png`} alt={suit} style={{ position: 'absolute', bottom: '7%', right: '7%' }} />
     </div>
   );
 }
