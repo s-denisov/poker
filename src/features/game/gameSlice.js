@@ -22,15 +22,19 @@ const createShuffledDeck = () => {
 
 export const createShuffledDeckTestingOnly = createShuffledDeck;
 
+const initialState = {
+  communityCards: [],
+  pot: 0,
+  players: [],
+};
+
 const gameSlice = createSlice({
   name: 'game',
-  initialState: {
-    communityCards: [],
-    pot: 0,
-    players: [],
-  },
+  initialState,
   reducers: {
     newGame: (state, action) => {
+      console.log("dispatch", state); // TODO: use Object.assign
+      state.players = [];
       for (let i = 0; i < action.payload.numPlayers; i += 1) {
         state.players.push({ cards: [], money: 1000, bet: 0 });
       }
@@ -42,6 +46,11 @@ const gameSlice = createSlice({
       let i = 5;
       state.players.forEach((player) => {
         player.cards = deck.slice(i, i + 2);
+        if (i === 5) {
+          player.cards.forEach((card) => {
+            card.faceDown = false;
+          });
+        }
         i += 2;
       });
     },
@@ -49,7 +58,7 @@ const gameSlice = createSlice({
 });
 
 export const selectCommunityCards = (state) => state.game.communityCards;
-export const selectPlayer = (playerNum) => (state) => state.game.players[playerNum];
+export const selectPlayers = (state) => state.game.players;
 
 export const { newGame, newRound } = gameSlice.actions;
 export default gameSlice.reducer;

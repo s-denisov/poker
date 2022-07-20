@@ -19,5 +19,7 @@ describe('game reducer', () => {
     gameState.players.forEach((player) => allCards.push(...player.cards));
     expect(allCards.length).toEqual(15);
     expect(new Set(allCards).size).toEqual(allCards.length); // no duplicates
+    const gameState2 = gameReducer(undefined, newGame({ numPlayers: 2 }));
+    expect(gameState2.players.length).toEqual(2);
   });
 });
