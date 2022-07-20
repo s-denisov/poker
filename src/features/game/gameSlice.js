@@ -33,7 +33,7 @@ const gameSlice = createSlice({
   initialState,
   reducers: {
     newGame: (state, action) => {
-      console.log("dispatch", state); // TODO: use Object.assign
+      // TODO: use Object.assign
       state.players = [];
       for (let i = 0; i < action.payload.numPlayers; i += 1) {
         state.players.push({ cards: [], money: 1000, bet: 0 });
@@ -59,6 +59,8 @@ const gameSlice = createSlice({
 
 export const selectCommunityCards = (state) => state.game.communityCards;
 export const selectPlayers = (state) => state.game.players;
+export const selectTotalPlayers = (state) => state.game.players.length;
+export const selectPlayer = (index) => (state) => state.game.players[index];
 
 export const { newGame, newRound } = gameSlice.actions;
 export default gameSlice.reducer;
