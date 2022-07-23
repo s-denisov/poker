@@ -36,7 +36,7 @@ export default function Player({ playerNumber, totalPlayers }) {
   return (
     <div style={style}>
       {player.money}
-      <MultipleCards cards={player.cards} />
+      <MultipleCards cards={player.cards} isCommunnityCards={false} />
     </div>
   );
 }

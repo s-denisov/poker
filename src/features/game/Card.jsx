@@ -1,18 +1,15 @@
 import React from 'react';
 
-const defaultWidth = 5; // in vw
-const defaultHeight = defaultWidth * 1.4;
-const vwToStr = (vw) => `${vw}vw`;
-
-
-export default function Card({ faceDown, suit, number }) {
+export default function Card({ faceDown, suit, number, cardWidth }) {
+  const cardHeight = cardWidth * 1.4;
+  const vwToStr = (vw) => `${vw}vw`;
   const cardColor = ['hearts', 'diamonds'].includes(suit) ? 'red' : 'black';
   if (faceDown) {
     return (
       <img
         style={{
-          width: vwToStr(defaultWidth),
-          height: vwToStr(defaultHeight),
+          width: vwToStr(cardWidth),
+          height: vwToStr(cardHeight),
           borderStyle: 'solid',
           borderWidth: 1,
           borderColor: 'black',
@@ -27,10 +24,10 @@ export default function Card({ faceDown, suit, number }) {
       borderStyle: 'solid',
       borderWidth: 1,
       borderColor: 'black',
-      width: vwToStr(defaultWidth),
-      height: vwToStr(defaultHeight),
-      padding: vwToStr(defaultWidth / 10),
-      fontSize: vwToStr(defaultWidth / 2),
+      width: vwToStr(cardWidth),
+      height: vwToStr(cardHeight),
+      padding: vwToStr(cardWidth / 10),
+      fontSize: vwToStr(cardWidth / 2),
       boxSizing: 'border-box',
       position: 'relative',
       fontWeight: 'bold',

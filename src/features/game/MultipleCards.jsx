@@ -4,10 +4,10 @@ import '../../App.css';
 
 // if community cards then playerNumber is -1
 export default function MultipleCards({
-  cards,
+  cards, isCommunnityCards,
 }) {
   const style = {
-    display: 'flex', padding: 0, gap: '2vw',
+    display: 'flex', padding: 0, gap: isCommunnityCards ? '2vw' : '1vw',
   };
   return (
     <div style={style}>
@@ -16,6 +16,7 @@ export default function MultipleCards({
           suit={card.suit}
           number={card.number}
           faceDown={card.faceDown}
+          cardWidth={isCommunnityCards ? 5 : 3}
         />
       ))}
     </div>

@@ -10,7 +10,7 @@ export default function SharedArea() {
   centerStyle(style, true, true);
   return (
     <div style={style}>
-      <MultipleCards cards={communityCards} />
+      <MultipleCards cards={communityCards} isCommunnityCards />
     </div>
   );
 }
