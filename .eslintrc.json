@@ -4,22 +4,37 @@
         "es2021": true
     },
     "extends": [
+        "eslint:recommended",
         "plugin:react/recommended",
-        "airbnb"
+        "plugin:@typescript-eslint/recommended"
     ],
+    "overrides": [
+    ],
+    "parser": "@typescript-eslint/parser",
     "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        },
         "ecmaVersion": "latest",
         "sourceType": "module"
     },
     "plugins": [
-        "react", "only-warn"
+        "react",
+        "@typescript-eslint"
     ],
     "rules": {
-        "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
-	"no-param-reassign": "off",
-    "react/prop-types": "off"
+        "indent": [
+            "error",
+            4
+        ],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ]
     }
 }

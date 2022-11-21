@@ -6,7 +6,9 @@ import { centerStyle } from './style';
 
 export default function Player({ playerNumber, totalPlayers }) {
   const player = useSelector(selectPlayer(playerNumber));
-  const style = { position: 'absolute', color: 'white' };
+  const style = {
+    position: 'absolute', color: 'white', display: 'flex', gap: 10,
+  };
   if (playerNumber === 0) {
     style.bottom = '15%';
     centerStyle(style, true, false);
